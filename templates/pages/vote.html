@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+
+{% block title %} | Vote{% endblock %}
+
+{% block content %}
+
+<style>
+
+
+.mediumifire{
+    margin-left: 30rem; 
+    margin-top:10rem;
+}
+
+
+@media only screen and (max-width: 480px) {
+  .mediumifire{
+    margin-top: 15px;
+    margin-left:0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .mediumifire{
+    margin-left:15rem;
+  }
+}
+
+</style>
+
+{% for question in question %}
+  <div class="container">
+    <div class="row">
+        <div class="col-md-3 mediumifire">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h6 class="panel-title">
+                    {{question.question}}
+                    </h6>
+                </div>
+
+              <form method="POST">
+                  {% csrf_token %}
+                <div class="panel-body">
+                    <ul class="list-group">
+
+                        <li class="list-group-item">
+                        <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="poll" value="option1" required>
+                                {{question.option_1}}
+                            </label> &nbsp;
+                        </div>
+                    </li>
+
+
+                <li class="list-group-item">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="poll" value="option2">
+                            {{question.option_2}}
+                        </label> &nbsp;
+                    </div>
+                </li>
+
+
+
+                <li class="list-group-item">
+                    <div class="radio">                    
+                        <label>
+                            <input type="radio" name="poll" value="option3">
+                            {{question.option_3}}
+                        </label> &nbsp;
+                    </div>
+                </li>
+
+                
+                <li class="list-group-item">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="poll" value="option4">
+                            {{question.option_4}}
+                        </label> &nbsp;
+                    </div>
+                </li>
+
+
+
+ 
+                <hr />
+
+                <div class="panel-footer">
+                    <button type="submit" style="margin-left: 7rem; margin-top: 0.5rem;" class="btn btn-primary btn-md">Vote</button>
+                    <a href="{% url 'results' question.id %}" style="display: flex; text-decoration: none; margin-top: 0.5rem; margin-left: 6rem;">View Result</a></div>
+                </div>
+
+            </form>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+
+
+{% endblock %}

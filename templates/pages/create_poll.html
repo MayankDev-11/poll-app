@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %} | Create Poll{% endblock %}
+
+{% block content %}
+
+<!-- 
+<form action=""  method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <input type="text" placeholder="Question" Required name="question">
+    <input type="text" placeholder="Option-1" Required name="option-1">
+    <input type="text" placeholder="Option-2" Required name="option-2">
+    <input type="text" placeholder="Option-3" Required name="option-3">
+    <input type="text" placeholder="Option-4" Required name="option-4">
+    <input type="file" Required name="image" class="form-control">
+
+    <button type="submit" class="btn btn-primary active" aria-current="page">Submit</button>
+
+
+
+</form> -->
+
+<div class="form-control">
+<form action="" method="POST" enctype="multipart/form-data">
+    <div class="container">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="" class="form-label">Question</label>
+        <input type="text" Required name="question" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Option-1</label>
+        <input type="text" Required name="Option-1" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Option-2</label>
+        <input type="text" Required name="Option-2" class="form-control">
+    </div>
+    
+    <div class="mb-3">
+        <label for="" class="form-label">Option-3</label>
+        <input type="text" Required name="Option-3" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="" class="form-label">Option-4</label>
+        <input type="text" Required name="Option-4" class="form-control">
+    </div>
+     <div class="mb-3">
+        <label for="" class="form-label">Image</label>
+        <input type="file" Required name="image" class="form-control" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
+</div>
+
+{% endblock %}
